@@ -1,2 +1,2 @@
 const btnToClick = document.querySelector("#btnToClick");
-btnToClick.addEventListener('click', () => console.log(btnToClick));
+btnToClick.addEventListener('click', (event) => console.log(event));
