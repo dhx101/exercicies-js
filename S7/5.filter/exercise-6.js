@@ -7,10 +7,9 @@ const streamers = [
 
 const gameMayus = streamers.filter((item) => {
 	item.age > 35 && (item.gameMorePlayed = item.gameMorePlayed.toUpperCase());
-    // if(item.age > 35) {
-    //    return item.gameMorePlayed = item.gameMorePlayed.toUpperCase()
-    // }
-    return item.gameMorePlayed.toLowerCase().includes("legends");
+	// if(item.age > 35) {
+	//    return item.gameMorePlayed = item.gameMorePlayed.toUpperCase()
+	// }
+	return item.gameMorePlayed.toLowerCase().includes("legends");
 });
-
 console.log(gameMayus);
