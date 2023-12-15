@@ -6,9 +6,12 @@ const streamers = [
 ];
 
 const searchBtn = document.querySelector("[data-function=toShowFilterStreamers]");
-searchBtn.addEventListener("click", (event) => {
+
+const viewValue = () => {
 	const inputText = document.querySelector("[data-function=toFilterStreamers]");
-	console.log(inputText.value)
-    const buscador = streamers.filter((item) => item.name.toLowerCase().includes(inputText.value));
+	console.log(inputText.value);
+	const buscador = streamers.filter((item) => item.name.toLowerCase().includes(inputText.value));
 	console.log(buscador);
-});
+};
+
+searchBtn.addEventListener("click", viewValue);

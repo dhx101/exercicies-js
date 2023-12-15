@@ -8,7 +8,7 @@ const countries = [
 
 const myBody = document.querySelector("body");
 const myUl = document.createElement("ul");
-myBody.appendChild(myUl)
+myBody.appendChild(myUl);
 
 countries.forEach((item) => {
 	const myIl = document.createElement("li");
@@ -19,23 +19,20 @@ countries.forEach((item) => {
 	myIl.appendChild(myH4);
 	myIl.appendChild(myImg);
 
-    const myBtn = document.createElement('button');
-    myBtn.textContent = "delete this photo"
-    myBtn.addEventListener("click", ()=> {
-        myUl.removeChild(myIl)
-    })
-    myIl.appendChild(myBtn);
+	const myBtn = document.createElement("button");
+	myBtn.textContent = "delete this photo";
+	myBtn.addEventListener("click", () => {
+		myUl.removeChild(myIl);
+		myUl.removeChild(myBtn)
+	});
+	myIl.appendChild(myBtn);
 
-
-    myUl.appendChild(myIl);
+	myUl.appendChild(myIl);
 });
 
-const removeBtn = document.querySelector('button');
+const removeBtn = document.querySelector("button");
 const removeLastItem = () => {
-const lastItem = document.querySelector('li:last-child')
-myUl.removeChild(lastItem)
-}
-removeBtn.addEventListener("click", removeLastItem)
-
-
-
+	const lastItem = document.querySelector("li:last-child");
+	myUl.removeChild(lastItem);
+};
+removeBtn.addEventListener("click", removeLastItem);

@@ -6,8 +6,9 @@ const streamers = [
 ];
 
 const inputText = document.querySelector("[data-function=toFilterStreamers]");
-inputText.addEventListener("input", (event) => {
-	console.log(event.target.value);
-	const buscador = streamers.filter((item) => item.name.toLowerCase().includes(item.target.value));
+
+const leerInput = () => {
+	const buscador = streamers.filter((item) => item.name.toLowerCase().includes(inputText.value));
 	console.log(buscador);
-});
+};
+inputText.addEventListener("input", leerInput);
