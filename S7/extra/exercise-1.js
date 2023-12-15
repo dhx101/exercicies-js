@@ -11,6 +11,10 @@ const videogames = [
 	},
 ];
 
-const rpgGameMedia = videogames.filter((item) => item.genders.includes("RPG")).reduce((acc, item)=> acc + item.score,0)/videogames.filter((item) => item.genders.includes("RPG")).length;
+const rpgGameMedia =
+	videogames
+		.filter((item) => item.genders.includes("RPG"))
+		.reduce((acc, item) => acc + item.score, 0) /
+	videogames.filter((item) => item.genders.includes("RPG")).length;
 
 console.log(rpgGameMedia);
