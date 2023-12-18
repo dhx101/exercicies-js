@@ -1,0 +1,19 @@
+img {
+    width: 100%;
+}
+
+[data-function="planets"] {
+    width: 500px;
+}
+
+[data-function="characters"] {
+    width: 100%;
+}
+
+[data-function="characters"] img {
+    width: 200px;
+}
+
+.appear {
+    display: none;
+}
