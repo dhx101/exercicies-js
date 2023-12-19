@@ -13,7 +13,7 @@ const dragonBallApi = async () => {
 		myPlanetContainer.appendChild(planetName);
 		myPlanetContainer.appendChild(planetImg);
 		console.log(planet);
-		myPlanetContainer.addEventListener("click", async (event) => {
+		myPlanetContainer.addEventListener("click", async () => {
 			let characters = await fetch(`http://localhost:3000/characters?idPlanet=${planet.id}`);
 			let charJson = await characters.json();
 			let myCharacterContainer = document.querySelector('[data-function="characters"]');
