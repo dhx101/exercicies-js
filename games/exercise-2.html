@@ -1,33 +1,48 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>Whack a mole</title>
-    <link rel="stylesheet" href="exercise-2.css">
-    <script src="exercise-2.js" defer></script>
-
-  </head>
-  <body>
-
-      <h1>Whack a mole!</h1>
-
-        <h2>Your score:</h2>
-        <h2 data-function="score">0</h2>
-
-        <h2>Seconds left:</h2>
-         <h2 data-function="time-left">30</h2>
-
-      <div class="b-grid">
-        <div data-function="square" class="b-square"></div>
-        <div data-function="square" class="b-square"></div>
-        <div data-function="square" class="b-square"></div>
-        <div data-function="square" class="b-square"></div>
-        <div data-function="square" class="b-square"></div>
-        <div data-function="square" class="b-square"></div>
-        <div data-function="square" class="b-square"></div>
-        <div data-function="square" class="b-square"></div>
-        <div data-function="square" class="b-square"></div>
+	<head>
+		<meta charset="utf-8" />
+		<title>Whack a mole</title>
+		<link rel="stylesheet" href="exercise-2.css" />
+		<script src="exercise-2.js" defer></script>
+	</head>
+	<body>
+		<header>
+			<div>
+				<h1>Whack a mole!</h1>
+				<h2>Your score:</h2>
+				<h2 data-function="score">0</h2>
+				<h2>Seconds left:</h2>
+				<h2 data-function="time-left">30</h2>
+			</div>
+			<div class="start-game"></div>
+      <div class="modal">
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <button class="easy">Easy</button>
+          <button class="medium">Medium</button>
+          <button class="hard">Hard</button>
+        </div>
       </div>
-
-  </body>
+			
+		</header>
+		<div class="b-grid">
+			<div data-function="square" class="b-square"></div>
+			<div data-function="square" class="b-square"></div>
+			<div data-function="square" class="b-square"></div>
+			<div data-function="square" class="b-square"></div>
+			<div data-function="square" class="b-square"></div>
+			<div data-function="square" class="b-square"></div>
+			<div data-function="square" class="b-square"></div>
+			<div data-function="square" class="b-square"></div>
+			<div data-function="square" class="b-square"></div>
+		</div>
+    <div class="modal-2">
+      
+      <div class="modal-content-2">
+        <span class="close-2">&times;</span>
+        <p class="your-score"></p>
+      </div>
+    </div>
+	</body>
 </html>
