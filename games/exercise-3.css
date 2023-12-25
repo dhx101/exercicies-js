@@ -39,3 +39,9 @@
     margin-bottom: 10px;
     cursor: pointer;
 }
+
+.answered, .invalid {
+    pointer-events: none;
+    opacity: 0.2;
+}
+
