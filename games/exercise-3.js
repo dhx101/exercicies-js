@@ -542,58 +542,73 @@ const persons = [
 const board = document.querySelector('[data-function="boardGame"]');
 const question = document.querySelector('[data-function="questions" ]');
 const clueCount = document.querySelector('[data-function="clueCount"]');
-
-const createBoard = (array, choice) => {
-	array.forEach((item) => {
+let computerChoice = persons[Math.floor(Math.random() * persons.length)];
+console.log(computerChoice);
+const createBoard = () => {
+	persons.forEach((item) => {
 		const myImg$$ = document.createElement("img");
 		myImg$$.setAttribute("src", item.img);
 		board.appendChild(myImg$$);
-		if (item == choice) {
-			myImg$$.addEventListener("click", () => {
-				console.log("correcto");
-				console.log(item);
-			});
-		} else {
-			myImg$$.addEventListener("click", () => {
-				console.log("no es");
-				console.log(item);
-			});
-		}
+		myImg$$.addEventListener("click", () => {
+			winner(item);
+		});
 	});
 };
-const askQuestions = (choice) => {
-	console.log(choice);
-	let i = 0;
-	const newClue = document.createElement("button");
-	newClue.textContent = "Another clue";
-	question.appendChild(newClue);
-	newClue.addEventListener("click", () => {
-		if (i < questionsType.length) {
-			clueCount.textContent = i + 1;
-            i += 1;
-			const myH2$$ = document.createElement("h2");
-			myH2$$.textContent = questionsType[i].title;
-			question.appendChild(myH2$$);
-			console.log(questionsType[i]);
-			questionsType[i].questions.forEach((item) => {
-				if (choice[questionsType[i].key] == item) {
-					const answer$$ = document.createElement("button");
-					answer$$.textContent = item;
-					question.appendChild(answer$$);
-				}
+const askQuestions = () => {
+	questionsType.forEach((item) => {
+		const myH2$$ = document.createElement("h2");
+		myH2$$.textContent = item.title;
+		question.appendChild(myH2$$);
+
+		item.questions.forEach((element) => {
+			const myBtn$$ = document.createElement("button");
+			myBtn$$.textContent = element;
+			question.appendChild(myBtn$$);
+			myBtn$$.addEventListener("click", () => {
+				disableCharacters(element, item.key);
+				console.log(element, item.key);
+				clueCount.textContent = Number(clueCount.textContent) + 1;
 			});
-		} else {
-			console.log("No more clues!");
-		}
-		
+		});
 	});
 };
 
-const init = (array) => {
-	const computerChoice = persons[Math.floor(Math.random() * persons.length)];
-	createBoard(array, computerChoice);
+const disableCharacters = (element, key) => {
+	const incorrectCharacters =
+		computerChoice[key] == element
+			? persons.filter((item) => item[key] !== element)
+			: persons.filter((item) => item[key] === element);
+
+	incorrectCharacters.forEach((item) => {
+		const myImg$$ = document.querySelector(`[src='${item.img}']`);
+		console.log(item.img);
+		myImg$$.classList.add("disabled");
+	});
+};
+
+const winner = (choice) => {
+	choice == computerChoice
+		? alert(`Has Acertado con ${clueCount.textContent} pistas`)
+		: console.log("No has acertado");
+	reset();
+};
+
+const reset = () => {
+	while (board.firstChild) {
+		board.removeChild(board.lastChild);
+	}
+	while (question.firstChild) {
+		question.removeChild(question.lastChild);
+	}
+	computerChoice = persons[Math.floor(Math.random() * persons.length)];
+	createBoard(computerChoice);
 	askQuestions(computerChoice);
 };
 
-init(persons);
+const init = () => {
+	createBoard();
+	askQuestions(computerChoice);
+};
+
+init();
 console.log(questionsType[0].questions.length);
